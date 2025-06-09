@@ -12,7 +12,7 @@ import { BLOG_DIR } from '@/lib/env'
 
 export default defineType({
 	name: 'product.detail',
-	title: 'Page',
+	title: 'Product',
 	type: 'document',
 	groups: [{ name: 'content', default: true }, { name: 'metadata' }],
 	fields: [
