@@ -11,6 +11,7 @@ import {
 } from '@/sanity/lib/queries'
 import { languages } from '@/lib/i18n'
 import errors from '@/lib/errors'
+import { PRODUCT_DIR } from '@/lib/env'
 
 export default async function Page({ params }: Props) {
 	const page = await getPage(await params)
@@ -52,11 +53,11 @@ async function getPage(params: Params) {
 				// global modules (before)
 				*[_type == 'global-module' && path == '*'].before[]{ ${MODULES_QUERY} }
 				// path modules (before)
-				+ *[_type == 'global-module' && path != '*' && ${GLOBAL_MODULE_PATH_QUERY}].before[]{ ${MODULES_QUERY} }
+				+ *[_type == 'global-module' && path == '${PRODUCT_DIR}/'].before[]{ ${MODULES_QUERY} }
 				// page modules
 				+ modules[]{ ${MODULES_QUERY} }
 				// path modules (after)
-				+ *[_type == 'global-module' && path != '*' && ${GLOBAL_MODULE_PATH_QUERY}].after[]{ ${MODULES_QUERY} }
+				+ *[_type == 'global-module' && path == '${PRODUCT_DIR}/'].after[]{ ${MODULES_QUERY} }
 				// global modules (after)
 				+ *[_type == 'global-module' && path == '*'].after[]{ ${MODULES_QUERY} }
 			),
@@ -67,6 +68,15 @@ async function getPage(params: Params) {
 			${TRANSLATIONS_QUERY},
 			"site": *[_type == 'site'][0]{
 				ordersite->{
+					idorder,
+					idordername,
+					idorderphone,
+					idorderemail,
+					idorderaddress,
+					idorderproduct,
+					idorderoption1,
+					idorderoption2,
+					urlordergform,
 					idnewletteremail,
 					urlnewlettergform
 				}
