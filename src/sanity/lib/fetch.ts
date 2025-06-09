@@ -51,7 +51,7 @@ export const { sanityFetch, SanityLive } = defineLive({
 export async function fetchSanityLive<T = any>(
 	args: Parameters<typeof sanityFetch>[0],
 ) {
-	const preview = dev || (await draftMode()).isEnabled
+	const preview = process.env.NODE_ENV === 'development' || dev
 
 	const { data } = await sanityFetch({
 		...args,
