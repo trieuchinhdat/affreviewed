@@ -213,7 +213,7 @@ export default function ImageList({
 				<div
 					className={cn(
 						'layout-product grid items-start gap-6',
-						tiers ? 'grid grid-cols-1 gap-6 lg:grid-cols-10' : 'grid-cols-1',
+						tiers ? 'grid grid-cols-1 gap-8 lg:grid-cols-10' : 'grid-cols-1',
 					)}
 				>
 					{/* LEFT: Image Slideshow */}

@@ -14,9 +14,9 @@ export default function ProductPreview({
 
 	return (
 		<div className="group border-global-style relative isolate flex h-full flex-col overflow-hidden rounded-3xl bg-white shadow-sm transition-all hover:shadow-lg">
-			<figure className="bg-ink/3 relative aspect-square overflow-hidden transition-all group-hover:scale-105">
+			<figure className="bg-ink/3 relative aspect-square overflow-hidden transition-all">
 				<Img
-					className="h-full w-full object-cover transition-all"
+					className="h-full w-full object-cover transition-all group-hover:scale-105"
 					image={product?.metadata.image}
 					width={800}
 					alt={product?.metadata.title}
