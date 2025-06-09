@@ -21,7 +21,7 @@ export default defineType({
 			title: 'Assets',
 			type: 'array',
 			of: [{ type: 'img' }],
-			validation: (Rule) => Rule.max(9),
+			validation: (Rule) => Rule.max(12),
 		}),
 		defineField({
 			name: 'columns',
@@ -88,11 +88,20 @@ export default defineType({
 	preview: {
 		select: {
 			media: 'assets.0.asset',
+			layout: 'layout',
 		},
-		prepare({ media }) {
+		prepare({ media, layout }) {
+			let subtitle = 'Image List'
+
+			if (layout === 'grid') subtitle = 'Grid Layout - Up to 12 images'
+			else if (layout === 'carousel')
+				subtitle = 'Carousel Layout - Up to 12 images'
+			else if (layout === 'product')
+				subtitle = 'Product Layout with tier reference'
+
 			return {
 				title: 'Image List',
-				subtitle: 'Up to 9 images',
+				subtitle,
 				media,
 			}
 		},
