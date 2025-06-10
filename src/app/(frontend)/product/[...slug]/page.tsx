@@ -16,7 +16,13 @@ import { PRODUCT_DIR } from '@/lib/env'
 export default async function Page({ params }: Props) {
 	const page = await getPage(await params)
 	if (!page) notFound()
-	return <Modules modules={page.modules} page={page} />
+	return (
+		<>
+			<div className="-mt-4">
+				<Modules modules={page.modules} page={page} />
+			</div>
+		</>
+	)
 }
 
 export async function generateMetadata({ params }: Props) {

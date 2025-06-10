@@ -25,6 +25,7 @@ export default defineType({
 			of: [
 				{ type: 'block' },
 				imageBlock,
+				{ type: 'image-list' },
 				admonition,
 				defineArrayMember({
 					title: 'Code block',
@@ -34,6 +35,12 @@ export default defineType({
 					},
 				}),
 				{ type: 'custom-html' },
+				{ type: 'action-buy' },
+				{ type: 'accordion-list' },
+				{ type: 'card-list' },
+				{ type: 'hero.saas' },
+				{ type: 'hero.split' },
+				{ type: 'tabbed-content' },
 			],
 			group: 'content',
 		}),

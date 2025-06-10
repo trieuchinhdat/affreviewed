@@ -11,11 +11,7 @@ export default function ProductContent({
 }: { product?: Sanity.ProductDetail } & Sanity.Module) {
 	if (!product) return null
 	return (
-		<div className="product-template" {...moduleProps(props)}>
-			{/* <header className="section space-y-6 text-center">
-				<h1 className="h1 text-balance">{product.metadata.title}</h1>
-			</header> */}
-
+		<article {...moduleProps(props)} className="product-template">
 			<div className={cn('grid gap-8 p-4')}>
 				<Content
 					value={product.body}
@@ -25,6 +21,6 @@ export default function ProductContent({
 					<hr />
 				</Content>
 			</div>
-		</div>
+		</article>
 	)
 }
